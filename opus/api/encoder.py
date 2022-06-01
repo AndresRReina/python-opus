@@ -78,7 +78,7 @@ def encode(encoder, pcm, frame_size, max_data_bytes):
     if result < 0:
         raise OpusError(result)
 
-    return array.array('c', data[:result]).tostring()
+    return array.array('B', data[:result]).tostring()
 
 
 _encode_float = libopus.opus_encode_float
@@ -96,7 +96,7 @@ def encode_float(encoder, pcm, frame_size, max_data_bytes):
     if result < 0:
         raise OpusError(result)
 
-    return array.array('c', data[:result]).tostring()
+    return array.array('B', data[:result]).tostring()
 
 
 destroy = libopus.opus_encoder_destroy
